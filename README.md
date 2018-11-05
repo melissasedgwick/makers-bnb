@@ -2,7 +2,7 @@
 
 ## Description ##
 
-Makers BnB is a group project piece to create a web application that allows users to log in and list or rent properties. 
+Makers BnB is a group project piece to create a web application that allows users to log in and list or rent properties.
 
 ## Specification ##
 
@@ -120,5 +120,3 @@ Thursday PM `(Mel/Aimee, Lucas/Prash)`
 
 ## MVC Plan ##
 ![mvc-plan](public/mvc-plan.png)
-
-test
