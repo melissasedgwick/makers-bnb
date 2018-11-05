@@ -6,8 +6,8 @@
 
 ## Specification:
 
+Headline specifications:
 ```
-Headline specifications
 Any signed-up user can list a new space.
 Users can list multiple spaces.
 Users should be able to name their space, provide a short description of the space, and a price per night.
@@ -86,30 +86,30 @@ Bootstrap
 
 By Tuesday:
 
-A functioning web application where users can register an account and list properties to rent, which are stored in a database.
+`A functioning web application where users can register an account and list properties to rent, which are stored in a database.`
 
 By Friday:
 
-All user stories
+`All user stories`
 
 ## Stand Ups and Retros
 
 Daily:
 
-10am = Stand Up
+`10am = Stand Up`
 
-4pm = Retro
+`4pm = Retro`
 
 ## Pairing Patterns
 
-Tuesday AM (Lucas/Aimee, Mel/Prash)
+Tuesday AM `(Lucas/Aimee, Mel/Prash)`
 
-Tuesday PM (Lucas/Mel, Aimee/Prash)
+Tuesday PM `(Lucas/Mel, Aimee/Prash)`
 
-Wednesday AM (Mel/Aimee, Lucas/Prash)
+Wednesday AM `(Mel/Aimee, Lucas/Prash)`
 
-Wednesday PM (Lucas/Aimee, Mel/Prash)
+Wednesday PM `(Lucas/Aimee, Mel/Prash)`
 
-Thursday AM (Lucas/Mel, Aimee/Prash)
+Thursday AM `(Lucas/Mel, Aimee/Prash)`
 
-Thursday PM (Mel/Aimee, Lucas/Prash)
+Thursday PM `(Mel/Aimee, Lucas/Prash)`
