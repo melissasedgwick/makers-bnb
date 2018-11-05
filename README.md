@@ -1,10 +1,10 @@
-# Makers BnB
+# Makers BnB #
 
-# Description
+## Description ##
 
 [DESCRIPTION GOES HERE]
 
-## Specification:
+## Specification ##
 
 Headline specifications:
 ```
@@ -17,10 +17,9 @@ Nights for which a space has already been booked should not be available for use
 Until a user has confirmed a booking request, that space can still be booked for that night.
 ```
 
-## User Stories:
+## User Stories ##
 
 1.
-
 ```
 As a user
 So I can use the website
@@ -71,27 +70,18 @@ I would like to be able to request it too.
 
 ## Technologies
 
-JavaScript
+* JavaScript
+* jQuery
+* Jasmine
+* Sinatra
+* (Ruby)
+* PG
+* PostgreSQL
+* HTML
+* CSS
+* Bootstrap
 
-jQuery
-
-Jasmine
-
-Sinatra
-
-(Ruby)
-
-PG
-
-PostgreSQL
-
-HTML
-
-CSS
-
-Bootstrap
-
-## MVP
+## Minimum Viable Product ##
 
 By Tuesday:
 
@@ -99,17 +89,17 @@ By Tuesday:
 
 By Friday:
 
-`All user stories`
+`All user stories completed.`
 
-## Stand Ups and Retros
+## Stand Ups and Retro Schedule ##
 
 Daily:
 
-`10am = Stand Up`
+`Stand Up @ 10am`
 
-`4pm = Retro`
+`Retro @ 4pm`
 
-## Pairing Patterns
+## Pairing Patterns ##
 
 Tuesday AM `(Lucas/Aimee, Mel/Prash)`
 
@@ -123,5 +113,12 @@ Thursday AM `(Lucas/Mel, Aimee/Prash)`
 
 Thursday PM `(Mel/Aimee, Lucas/Prash)`
 
-## CRC cards
- See uploaded files
+## CRC Cards ##
+![user-card](public/user-card.png)
+![property-card](public/property-card.png)
+
+## Database Plan ##
+![database-plan](public/database-plan.png)
+
+## MVC Plan ##
+![mvc-plan](public/mvc-plan.png)
