@@ -72,14 +72,23 @@ I would like to be able to request it too.
 ## Technologies
 
 JavaScript
+
 jQuery
+
 Jasmine
+
 Sinatra
+
 (Ruby)
+
 PG
+
 PostgreSQL
+
 HTML
+
 CSS
+
 Bootstrap
 
 ## MVP
