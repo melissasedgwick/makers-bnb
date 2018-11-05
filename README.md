@@ -2,7 +2,7 @@
 
 ## Description ##
 
-[DESCRIPTION GOES HERE]
+Makers BnB is a group project piece to create a web application that allows users to log in and list or rent properties. 
 
 ## Specification ##
 
