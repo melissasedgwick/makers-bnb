@@ -66,6 +66,24 @@ If a space has been requested but not confirmed,
 I would like to be able to request it too.
 ```
 
+## Instructions for Use
+
+## Setting Up Databases
+
+1. Open psql
+
+`psql`
+
+2. Create bnb database
+
+`CREATE DATABASE bnb`
+
+3. Create test bnb database
+
+`CREATE DATABASE bnb_test`
+
+4. Follow instructions in db/migrations to set up tables
+
 ## Technologies
 
 * JavaScript
