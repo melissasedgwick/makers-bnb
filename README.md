@@ -122,3 +122,6 @@ Wednesday PM `(Lucas/Aimee, Mel/Prash)`
 Thursday AM `(Lucas/Mel, Aimee/Prash)`
 
 Thursday PM `(Mel/Aimee, Lucas/Prash)`
+
+## CRC cards
+ See uploaded files
