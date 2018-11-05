@@ -68,6 +68,17 @@ I would like to be able to request it too.
 
 ## Instructions for Use
 
+1. Clone the repository
+
+`git clone https://github.com/melissasedgwick/makers-bnb.git`
+
+2. Navigate into the repository
+
+`cd makers-bnb`
+
+3. Set up the databases using the instructions below
+
+
 ## Setting Up Databases
 
 1. Open psql
@@ -82,7 +93,7 @@ I would like to be able to request it too.
 
 `CREATE DATABASE bnb_test`
 
-4. Follow instructions in db/migrations to set up tables
+4. Follow instructions in db/migrations to set up tables in each database. (Use \\c bnb and \\c bnb_test to set up tables in each database.)
 
 ## Technologies
 
