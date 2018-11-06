@@ -1,13 +1,16 @@
 require 'sinatra/base'
-require_relative './database_connection_setup'
+require './database_connection_setup'
 require_relative './lib/property'
-
+require './lib/user'
 
 class MakersBnB < Sinatra::Base
   enable :sessions
 
   get '/' do
+
     @properties = Property.all
+    @name = session[:current_user]
+    p session[:current_user]
     erb :index
   end
 
@@ -16,6 +19,15 @@ class MakersBnB < Sinatra::Base
     erb :property
   end
 
+  get '/register' do
+    erb :register
+  end
+
+  post '/registration' do
+    user = User.register(name: params['name'], username: params['username'], email: params['email'], password: params['password'])
+    session[:current_user] = user.name
+    redirect('/')
+  end
 
 
   run! if app_file == $0
