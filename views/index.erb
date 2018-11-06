@@ -10,13 +10,21 @@
       <input type="submit" value="login">Login
     </form>
   </div>
-  <div id="tempProperty">
+  <!-- <div id="tempProperty">
     <h3>House 1</h3>
     <img src="http://designchair.co.uk/wp-content/uploads/2009/11/hpo1.jpg">
     <div id="price">
       PPN = £100
     </div>
-    <button type="submit" id="moreDetails">View more</button>
-  </div>
+    <button type="submit" id="moreDetails">View more</button> -->
+  <!-- </div> -->
+  <div id="List of properties">
+    <% @properties.each do |property| %>
+    <h3><%= property.name %> </h3>
+    <p>£<%= property.ppn %> per night</p>
+    <form action="/property/<%= property.id %>" method="GET">
+      <input type="submit" value="View More">
+    </form>
+    <% end %>
 </body>
 </html>
