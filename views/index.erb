@@ -3,10 +3,12 @@
   <title>Makers BnB by Team LAMP</title>
 </head>
 <body>
-  <h1>Makers BnB</h1>
+  <h1>Welcome to MakersBnB, <%= @name %>!</h1>
   <div id="account controls">
-    <button type="submit" id="register">Register</button>
-    <button type="submit" id="login">Login</button>
+    <form method="get" action="/register">
+      <input type="submit" value="register" id="register" name="register">Register
+      <input type="submit" value="login">Login
+    </form>
   </div>
   <div id="tempProperty">
     <h3>House 1</h3>
@@ -17,5 +19,4 @@
     <button type="submit" id="moreDetails">View more</button>
   </div>
 </body>
-<script src="../index.js"></script>
 </html>
