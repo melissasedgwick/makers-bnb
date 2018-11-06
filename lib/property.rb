@@ -2,7 +2,7 @@
 
 class Property
 
-  attr_reader :name, :description, :ppn
+  attr_reader :id, :name, :description, :ppn
 
   def initialize(id:, name:, description:, ppn:)
     @name = name
@@ -31,5 +31,10 @@ class Property
       description: result[0]['description'],
       ppn: result[0]['price_per_night'].to_i,
     )
+  end
+
+  def self.find(id:)
+    result = DatabaseConnection.query("SELECT * FROM properties WHERE id = #{id};")
+    Property.new(id: result[0]['id'], name: result[0]['name'], description: result[0]['description'], ppn: result[0]['price_per_night'])
   end
 end
