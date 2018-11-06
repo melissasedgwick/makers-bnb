@@ -4,6 +4,52 @@
 
 Makers BnB is a group project piece to create a web application that allows users to log in and list or rent properties.
 
+## Technologies ##
+
+jQuery, Sinatra, Ruby, PG, PostgreSQL, HTML, CSS, Bootstrap
+
+## Instructions for Use
+
+1. Clone the repository
+
+`git clone https://github.com/melissasedgwick/makers-bnb.git`
+
+2. Navigate into the repository
+
+`cd makers-bnb`
+
+3. Run the application
+
+`rackup`
+
+4. Access the program from `localhost:9292`
+
+5. Set up the databases using the instructions below
+
+
+## Setting Up Databases ##
+
+1. Open psql from command line
+
+`psql`
+
+2. Create bnb database
+
+`CREATE DATABASE bnb`
+
+3. Create test bnb database
+
+`CREATE DATABASE bnb_test`
+
+4. Follow instructions in db/migrations to set up tables in each database. (Use \\c bnb and \\c bnb_test to set up tables in each database.)
+
+## Testing
+
+To run tests:
+
+`rspec`
+
+
 ## Specification ##
 
 Headline specifications:
@@ -65,48 +111,6 @@ As a user
 If a space has been requested but not confirmed,
 I would like to be able to request it too.
 ```
-
-## Instructions for Use
-
-1. Clone the repository
-
-`git clone https://github.com/melissasedgwick/makers-bnb.git`
-
-2. Navigate into the repository
-
-`cd makers-bnb`
-
-3. Set up the databases using the instructions below
-
-
-## Setting Up Databases
-
-1. Open psql
-
-`psql`
-
-2. Create bnb database
-
-`CREATE DATABASE bnb`
-
-3. Create test bnb database
-
-`CREATE DATABASE bnb_test`
-
-4. Follow instructions in db/migrations to set up tables in each database. (Use \\c bnb and \\c bnb_test to set up tables in each database.)
-
-## Technologies
-
-* JavaScript
-* jQuery
-* Jasmine
-* Sinatra
-* (Ruby)
-* PG
-* PostgreSQL
-* HTML
-* CSS
-* Bootstrap
 
 ## Minimum Viable Product ##
 
