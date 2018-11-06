@@ -1,6 +1,6 @@
 feature 'User can add a property' do
   it 'Allows user to add a property' do
-
+    # Need to add a user and login steps!
     visit ('/')
 
     click_button 'Add property'
