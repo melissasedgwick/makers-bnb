@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require './database_connection_setup'
-require_relative './lib/property'
+require './lib/property'
 require './lib/user'
 require 'sinatra/flash'
 
@@ -51,6 +51,14 @@ class MakersBnB < Sinatra::Base
     redirect('/')
   end
 
+  get '/add-property' do
+    erb :add_property
+  end
+
+  post '/add-property' do
+    Property.create(name: params['name'], description: params['description'], ppn: params['ppn'])
+    redirect('/')
+  end
 
   run! if app_file == $0
 end
