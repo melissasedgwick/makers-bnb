@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './database_connection_setup'
+require_relative './lib/property'
 require './lib/user'
 require 'sinatra/flash'
 
@@ -8,8 +9,15 @@ class MakersBnB < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
+
+    @properties = Property.all
     @name = session[:current_user]
     erb :index
+  end
+
+  get '/property/:id' do
+    @property = Property.find(id: params[:id])
+    erb :property
   end
 
   get '/register' do
@@ -21,7 +29,7 @@ class MakersBnB < Sinatra::Base
     session[:current_user] = user.name
     redirect('/')
   end
-
+  
   get '/login' do
     erb :login
   end
@@ -42,6 +50,7 @@ class MakersBnB < Sinatra::Base
     flash[:notice] = "You have logged out."
     redirect('/')
   end
+
 
   run! if app_file == $0
 end
