@@ -1,43 +1,24 @@
 require 'sinatra/base'
 require './database_connection_setup'
+require './lib/user'
 
 class MakersBnB < Sinatra::Base
   enable :sessions
 
   get '/' do
-    @peeps = Peep.all
-    @user = session[:current_user]
+    @name = session[:current_user]
+    p session[:current_user]
     erb :index
   end
 
-  get '/sign-up' do
-    erb :sign_up
+  get '/register' do
+    erb :register
   end
 
-  post '/new-user' do
-    session[:current_user] = User.register(username: params['username'],
-      password: params['password'])
-    redirect '/'
-  end
-
-  post '/post' do
-    Peep.post(params['peep_content'])
-    redirect '/'
-  end
-
-  get '/login' do
-    erb :login
-  end
-
-  post '/login' do
-    session[:current_user] = User.find(username: params['username'],
-      password: params['password'])
-    redirect '/'
-  end
-
-  get '/logout' do
-    session.delete(:current_user)
-    redirect '/'
+  post '/registration' do
+    user = User.register(name: params['name'], username: params['username'], email: params['email'], password: params['password'])
+    session[:current_user] = user.name
+    redirect('/')
   end
 
   run! if app_file == $0
