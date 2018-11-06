@@ -9,7 +9,6 @@ class MakersBnB < Sinatra::Base
 
   get '/' do
     @name = session[:current_user]
-    p session[:current_user]
     erb :index
   end
 
@@ -36,6 +35,12 @@ class MakersBnB < Sinatra::Base
       flash[:notice] = 'Incorrect login details!'
       redirect('/login')
     end
+  end
+
+  post '/logout' do
+    session.clear
+    flash[:notice] = "You have logged out."
+    redirect('/')
   end
 
   run! if app_file == $0

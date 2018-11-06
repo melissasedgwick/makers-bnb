@@ -25,7 +25,7 @@ feature "user log in and out" do
     click_button('submit')
     expect(page).to have_content "Incorrect login details!"
   end
-  
+
   scenario "a user can log in" do
     visit('/')
     click_button('login')
@@ -33,5 +33,14 @@ feature "user log in and out" do
     fill_in :password, with: 'testpass'
     click_button('submit')
     expect(page).to have_content "Welcome to MakersBnB, Test!"
+  end
+  scenario "a user can log out" do
+    visit('/')
+    click_button('login')
+    fill_in :username, with: 'tester'
+    fill_in :password, with: 'testpass'
+    click_button('submit')
+    click_button('logout')
+    expect(page).to have_content "You have logged out."
   end
 end
