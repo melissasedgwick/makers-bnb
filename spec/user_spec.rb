@@ -1,4 +1,5 @@
 require './lib/user.rb'
+require 'spec_helper'
 
 describe User do
   # before(:each) do
@@ -10,5 +11,5 @@ describe User do
     expect(user.name).to eq(result['name'])
   end
 
-  
+
 end

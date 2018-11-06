@@ -10,7 +10,6 @@ class MakersBnB < Sinatra::Base
 
     @properties = Property.all
     @name = session[:current_user]
-    p session[:current_user]
     erb :index
   end
 

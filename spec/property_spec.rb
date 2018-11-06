@@ -1,5 +1,5 @@
-
 require 'property'
+require 'spec_helper'
 
 describe Property do
 
