@@ -1,35 +1,31 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/lucas.razzell/Desktop/Apprenticeship/Javascript/makers-bnb/spec/features/feat_view_my_bookings_spec.rb": [
-        1,
-        1,
-        1,
+
         1,
         null,
         1,
-        1,
-        1,
-        null,
+        5,
         null,
         null,
         1,
         1,
+
+        1,
+        null,
+        null,
+        null,
+        1,
+
         null,
         1,
         1,
-        null,
         1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        1,
+
         null,
         null
       ]
     },
-    "timestamp": 1541604099
+
   }
 }

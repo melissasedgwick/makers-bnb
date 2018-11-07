@@ -1,10 +1,12 @@
 require 'booking'
 require 'property'
+require 'user'
 
 describe Booking do
 
   before :each do
-    @property = Property.create(name: 'Fancy Place', description: 'A fancy place', ppn: 20)
+    @letter = User.register(name: 'Name', username: 'username', email: 'name@test.com', password: 'password123')
+    @property = Property.create(name: 'Fancy Place', description: 'A fancy place', ppn: 20, letter_id: @letter.id)
     @user = User.register(name: 'Test', username: 'tester', email: 'test@test.com', password: 'testpass')
   end
 

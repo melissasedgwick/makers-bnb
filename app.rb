@@ -11,7 +11,7 @@ class MakersBnB < Sinatra::Base
 
   get '/' do
     @properties = Property.all
-    @name = session[:current_user]
+    @user = session[:current_user]
     erb :index
   end
 
@@ -27,7 +27,7 @@ class MakersBnB < Sinatra::Base
 
   post '/registration' do
     user = User.register(name: params['name'], username: params['username'], email: params['email'], password: params['password'])
-    session[:current_user] = user.name
+    session[:current_user] = user
     redirect('/')
   end
 
@@ -37,6 +37,7 @@ class MakersBnB < Sinatra::Base
 
   post '/authenticating' do
     user = User.auth(params['username'], params['password'])
+
       if user
         session[:current_user] = user
         redirect('/')
@@ -44,6 +45,7 @@ class MakersBnB < Sinatra::Base
         flash[:notice] = 'Incorrect login details!'
         redirect('/login')
       end
+
   end
 
   post '/logout' do
@@ -57,18 +59,25 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/add-property' do
-    Property.create(name: params['name'], description: params['description'], ppn: params['ppn'])
+    user = session[:current_user]
+    Property.create(name: params['name'], description: params['description'], ppn: params['ppn'], letter_id: user.id)
     redirect('/')
   end
 
-  post '/property/update/:id' do
+  get '/property/update/:id' do
     @property = Property.find(id: params[:id])
     erb :update
   end
 
   post '/update/:id' do
     Property.update(id: params[:id],name: params[:name],description: params[:description],ppn: params[:ppn])
-    redirect('/')
+    redirect('/my-properties')
+  end
+
+  get '/my-properties' do
+    @user = session[:current_user]
+    @properties = Property.find_by_letter(letter_id: @user.id)
+    erb :my_properties
   end
 
   get '/view_bookings' do

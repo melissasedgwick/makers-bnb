@@ -1,0 +1,10 @@
+<h1>Your properties:</h1>
+
+<% @properties.each do |property| %>
+  <li class="property" id="property-<%= property.id %>">
+    <%= property.name %>
+    <form method="get" action="property/update/<%= property.id %>">
+      <input type="submit" id="update" value="Update">
+    </form>
+  </li>
+<% end %>
