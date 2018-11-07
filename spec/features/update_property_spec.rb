@@ -1,8 +1,7 @@
 feature 'User can update a property' do
   scenario 'Updating a property' do
-
-    # user = User.register(name: 'Lucas', username: 'sacullezzar', email: 'lucas.razzell@gmail.com', password: 'pass123')
-    property = Property.create(name: 'House', description: 'a small house', ppn: 5)
+    letter = User.register(name: 'Lucas', username: 'sacullezzar', email: 'lucas.razzell@gmail.com', password: 'pass123')
+    property = Property.create(name: 'House', description: 'a small house', ppn: 5, letter_id: letter.id)
     visit('/')
 
     expect(page).to have_content('House')

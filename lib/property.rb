@@ -46,11 +46,12 @@ class Property
   end
 
   def self.update(id:, name:, description:, ppn:)
-    result = DatabaseConnection.query("UPDATE properties SET name = '#{name}', description = '#{description}', price_per_night = '#{ppn}' RETURNING id, name, description, price_per_night;")
+    result = DatabaseConnection.query("UPDATE properties SET name = '#{name}', description = '#{description}', price_per_night = '#{ppn}' RETURNING id, name, description, price_per_night, letter_id;")
     Property.new(id: result[0]['id'],
       name: result[0]['name'],
       description: result[0]['description'],
       ppn: result[0]['price_per_night'].to_i,
+      letter_id: result[0]['letter_id']
     )
   end
 end
