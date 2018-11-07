@@ -80,7 +80,8 @@ class Booking
       renter_id: booking['renter_id'],
       approved: booking['approved'],
       property_name: booking['name'],
-      ppn: booking['price_per_night']
+      ppn: booking['price_per_night'],
+      letter_id: booking['letter_id']
     )
   )
     return output

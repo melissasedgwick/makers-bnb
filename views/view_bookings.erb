@@ -4,7 +4,6 @@
   <h3>Hi <%= @user.name %>, here are your approved bookings:</h3>
   <div>
     <% @bookings.each do |booking| %>
-    <%= p booking %>
     <%= booking.id %>
     <%= booking.date %>
     <%= booking.property_name %>

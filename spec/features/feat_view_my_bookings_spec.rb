@@ -1,7 +1,8 @@
 feature 'User can view all approved bookings' do
   it 'lists approved bookings for the logged in user' do
     user = User.register(name: 'Lucas', username: 'sacullezzar', email: 'lucas.razzell@gmail.com', password: 'pass123')
-    property = Property.create(name: 'Cottage 1', description: 'A lovely place', ppn: 15)
+    letter = User.register(name: 'Lucy', username: 'famalam', email: 'penis@flytrap.com', password: 'peniarecool')
+    property = Property.create(name: 'Cottage 1', description: 'A lovely place', ppn: 15, letter_id: letter.id)
 
     Booking.submit_availability(date: "2018/06/06", property_id: property.id)
     request = Booking.request_booking(date: "2018/06/06", property_id: property.id, renter_id: user.id)
