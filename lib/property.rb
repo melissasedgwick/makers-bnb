@@ -54,4 +54,16 @@ class Property
       letter_id: result[0]['letter_id']
     )
   end
+
+  def self.find_by_letter(letter_id:)
+    result = DatabaseConnection.query("SELECT * FROM properties WHERE letter_id = #{letter_id};")
+    result.map do |property|
+      Property.new(id: property['id'],
+        name: property['name'],
+        description: property['description'],
+        ppn: property['price_per_night'].to_i,
+        letter_id: property['letter_id']
+      )
+    end
+  end
 end

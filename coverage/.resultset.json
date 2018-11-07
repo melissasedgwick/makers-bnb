@@ -122,6 +122,24 @@
         null
       ],
       "/Users/melissasedgwick/Projects/Makers/Week_6/makers-bnb/spec/features/my_properties_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
         null,
         null
       ],
@@ -244,7 +262,7 @@
         1,
         null,
         1,
-        4,
+        5,
         null,
         null,
         1,
@@ -292,6 +310,21 @@
         1,
         1,
         null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
         1,
         1,
         1,
@@ -320,6 +353,6 @@
         null
       ]
     },
-    "timestamp": 1541601208
+    "timestamp": 1541603449
   }
 }

@@ -59,4 +59,19 @@ describe Property do
       expect(updated_property.ppn).to eq(100)
     end
   end
+
+  describe '#find_by_letter' do
+    it 'returns an array of properties owned by one user' do
+      property = Property.create(name: 'Apartment', description: 'Swanky', ppn: 50, letter_id: @letter.id )
+      property = Property.create(name: 'Cottage', description: 'Awesome', ppn: 30, letter_id: @letter.id )
+      properties = Property.find_by_letter(letter_id: @letter.id)
+
+      expect(properties.length).to eq 2
+      expect(properties[0].name).to eq 'Apartment'
+      expect(properties[1].name).to eq 'Cottage'
+      expect(properties[0].description).to eq 'Swanky'
+      expect(properties[0].ppn).to eq 50
+      expect(properties[0].letter_id).to eq @letter.id
+    end
+  end
 end

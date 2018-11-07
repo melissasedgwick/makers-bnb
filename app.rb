@@ -72,5 +72,11 @@ class MakersBnB < Sinatra::Base
     redirect('/')
   end
 
+  get '/my-properties' do
+    @user = session[:current_user]
+    @properties = Property.find_by_letter(letter_id: @user.id)
+    erb :my_properties
+  end
+
   run! if app_file == $0
 end
