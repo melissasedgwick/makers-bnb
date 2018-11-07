@@ -22,6 +22,12 @@ describe Booking do
 
       expect(Booking.check_availability(property_id: property.id)).to eq(["2018-10-15", "2018-10-17", "2018-11-18"])
     end
+
+    it 'returns nil if no dates' do
+      property = Property.create(name: 'Fancy Place', description: 'A fancy place', ppn: 20)
+
+      expect(Booking.check_availability(property_id: property.id)).to eq nil
+    end
   end
 
 end
