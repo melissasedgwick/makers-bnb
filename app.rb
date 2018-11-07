@@ -2,6 +2,7 @@ require 'sinatra/base'
 require './database_connection_setup'
 require './lib/property'
 require './lib/user'
+require './lib/booking'
 require 'sinatra/flash'
 
 class MakersBnB < Sinatra::Base
@@ -16,6 +17,7 @@ class MakersBnB < Sinatra::Base
 
   post '/property/view/:id' do
     @property = Property.find(id: params[:id])
+    @availability = Booking.check_availability(property_id: params[:id])
     erb :property
   end
 

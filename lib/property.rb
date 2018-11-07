@@ -37,7 +37,7 @@ class Property
     Property.new(id: result[0]['id'],
       name: result[0]['name'],
       description: result[0]['description'],
-      ppn: result[0]['price_per_night'])
+      ppn: result[0]['price_per_night'].to_i)
   end
 
   def self.update(id:, name:, description:, ppn:)

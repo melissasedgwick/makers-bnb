@@ -7,5 +7,12 @@
   <%= @property.description %><br />
   £<%= @property.ppn %> per night.
 
+  <% if @availability %>
+    <h2>Dates available:</h2>
+    <% @availability.each do |date| %>
+      <%= date %>
+    <% end %>
+  <% end %>
+
 </body>
 </html>
