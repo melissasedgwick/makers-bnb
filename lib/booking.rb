@@ -24,6 +24,7 @@ class Booking
   def self.check_availability(property_id:)
     dates = []
     result = DatabaseConnection.query("SELECT date FROM bookings WHERE property_id = #{property_id}")
+    return nil unless result.any?
     result.each do |date|
       dates << date['date']
     end

@@ -27,18 +27,18 @@ describe Property do
     end
   end
 
-  # describe '#find' do
-  #   it 'returns the requested property object' do
-  #     property = Property.create(name: 'Daisy Cottage', description: 'A flowery place',
-  #       ppn: 20)
-  #
-  #     result = Property.find(id: property.id)
-  #
-  #     expect(result).to be_a Property
-  #     expect(result.id).to eq property.id
-  #     expect(result.name).to eq 'Daisy Cottage'
-  #     expect(result.description).to eq 'A flowery place'
-  #     expect(result.ppn).to eq 20
-  #   end
-  # end
+  describe '#find' do
+    it 'returns the requested property object' do
+      property = Property.create(name: 'Daisy Cottage', description: 'A flowery place',
+        ppn: 20)
+
+      result = Property.find(id: property.id)
+
+      expect(result).to be_a Property
+      expect(result.id).to eq property.id
+      expect(result.name).to eq 'Daisy Cottage'
+      expect(result.description).to eq 'A flowery place'
+      expect(result.ppn).to eq 20
+    end
+  end
 end
