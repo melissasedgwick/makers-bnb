@@ -1,10 +1,9 @@
-# require_relative '../database_connection_setup'
-
 class Property
 
   attr_reader :id, :name, :description, :ppn
 
   def initialize(id:, name:, description:, ppn:)
+    @id = id
     @name = name
     @description = description
     @ppn = ppn
@@ -35,6 +34,9 @@ class Property
 
   def self.find(id:)
     result = DatabaseConnection.query("SELECT * FROM properties WHERE id = #{id};")
-    Property.new(id: result[0]['id'], name: result[0]['name'], description: result[0]['description'], ppn: result[0]['price_per_night'])
+    Property.new(id: result[0]['id'],
+      name: result[0]['name'],
+      description: result[0]['description'],
+      ppn: result[0]['price_per_night'])
   end
 end

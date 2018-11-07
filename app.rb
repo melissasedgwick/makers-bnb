@@ -9,13 +9,12 @@ class MakersBnB < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-
     @properties = Property.all
     @name = session[:current_user]
     erb :index
   end
 
-  get '/property/:id' do
+  post '/property/view/:id' do
     @property = Property.find(id: params[:id])
     erb :property
   end
@@ -29,7 +28,7 @@ class MakersBnB < Sinatra::Base
     session[:current_user] = user.name
     redirect('/')
   end
-  
+
   get '/login' do
     erb :login
   end

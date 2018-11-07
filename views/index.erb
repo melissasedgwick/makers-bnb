@@ -28,8 +28,8 @@
     <%= property.name %>
     £<%= property.ppn %> per night.
     <br>
-    <form action="/property" method="get">
-      <input type="submit" value="View More">
+    <form action="/property/view/<%= property.id %>" method="post">
+      <input type="submit" id="view_<%= property.id %>" value="View More">
     </form>
     <% end %>
   </div>
