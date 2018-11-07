@@ -1,11 +1,16 @@
 require 'property'
+require 'user'
 
 describe Property do
 
+  before :each do
+    @letter = User.register(name: "name", username: "username", email: "test@test.com", password: "password123")
+  end
+
   describe '#all' do
     it 'returns all properties' do
-      Property.create(name: 'Cottage', description: 'A lovely place', ppn: 15)
-      Property.create(name: 'Castle Hotel', description: 'A grand place', ppn: 25)
+      Property.create(name: 'Cottage', description: 'A lovely place', ppn: 15, letter_id: @letter.id)
+      Property.create(name: 'Castle Hotel', description: 'A grand place', ppn: 25, letter_id: @letter.id)
 
       properties = Property.all
 
@@ -19,7 +24,7 @@ describe Property do
   describe '#create' do
     it 'creates a new property' do
       property = Property.create(name: 'Daisy Cottage', description: 'A flowery place',
-        ppn: 20)
+        ppn: 20, letter_id: @letter.id)
 
       expect(property.name).to eq 'Daisy Cottage'
       expect(property.description).to eq 'A flowery place'
@@ -30,7 +35,7 @@ describe Property do
   describe '#find' do
     it 'returns the requested property object' do
       property = Property.create(name: 'Daisy Cottage', description: 'A flowery place',
-        ppn: 20)
+        ppn: 20, letter_id: @letter.id)
 
       result = Property.find(id: property.id)
 
