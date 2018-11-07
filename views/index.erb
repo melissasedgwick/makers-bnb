@@ -31,9 +31,11 @@
     <form action="/property/view/<%= property.id %>" method="post">
       <input type="submit" id="view_<%= property.id %>" value="View More">
     </form>
+
     <form method="post" action="property/update/<%= property.id %>">
       <input type="submit" id="update" value="update">
     </form>
+
     <% end %>
   </div>
 
