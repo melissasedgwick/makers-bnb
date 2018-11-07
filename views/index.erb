@@ -6,19 +6,19 @@
   <h1>Welcome to MakersBnB, <%= @user.name if @user %>!</h1>
   <div id="account controls">
     <form method="get" action="/register">
-      <input type="submit" value="register" id="register" name="register">Register
+      <input type="submit" value="Register" id="register" name="register">
     </form>
     <form method="get" action="/login">
-      <input type="submit" value="login" id="login" name="login">Login
+      <input type="submit" value="Login" id="login" name="login">
     </form>
     <form method="post" action="/logout">
-      <input type="submit" value="logout" id="logout" name="logout">Login
+      <input type="submit" value="Logout" id="logout" name="logout">
     </form>
     <%= flash[:notice] %>
 
     <% if @user %>
     <form method="get" action="/add-property">
-      <input type="submit" value="Add property">Add Property
+      <input type="submit" value="Add property">
     </form>
     <form method="get" action="/my-properties">
       <input type="submit" value="My Properties">
@@ -36,7 +36,7 @@
     </form>
 
     <form method="post" action="property/update/<%= property.id %>">
-      <input type="submit" id="update" value="update">
+      <input type="submit" id="update" value="Update">
     </form>
 
     <% end %>
