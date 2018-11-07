@@ -1,7 +1,15 @@
 feature 'User can add a property' do
   it 'Allows user to add a property' do
-    # Need to add a user and login steps!
+    user = User.register(name: 'Lucas', username: 'sacullezzar', email: 'lucas.razzell@gmail.com', password: 'pass123')
+
     visit ('/')
+
+    click_button 'login'
+
+    fill_in :username, with: 'sacullezzar'
+    fill_in :password, with: 'pass123'
+
+    click_button 'submit'
 
     click_button 'Add property'
 
