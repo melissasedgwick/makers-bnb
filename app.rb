@@ -35,13 +35,13 @@ class MakersBnB < Sinatra::Base
 
   post '/authenticating' do
     user = User.auth(params['username'], params['password'])
-    if user
-      session[:current_user] = user.name
-      redirect('/')
-    else
-      flash[:notice] = 'Incorrect login details!'
-      redirect('/login')
-    end
+      if user
+        session[:current_user] = user.name
+        redirect('/')
+      else
+        flash[:notice] = 'Incorrect login details!'
+        redirect('/login')
+      end
   end
 
   post '/logout' do
@@ -56,6 +56,16 @@ class MakersBnB < Sinatra::Base
 
   post '/add-property' do
     Property.create(name: params['name'], description: params['description'], ppn: params['ppn'])
+    redirect('/')
+  end
+
+  post '/property/update/:id' do
+    @property = Property.find(id: params[:id])
+    erb :update
+  end
+
+  post '/update/:id' do
+    Property.update(id: params[:id],name: params[:name],description: params[:description],ppn: params[:ppn])
     redirect('/')
   end
 

@@ -39,4 +39,8 @@ class Property
       description: result[0]['description'],
       ppn: result[0]['price_per_night'])
   end
+
+  def self.update(id:, name:, description:, ppn:)
+    DatabaseConnection.query("UPDATE properties SET name = '#{name}', description = '#{description}', price_per_night = '#{ppn}'")
+  end
 end
