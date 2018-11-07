@@ -9,8 +9,8 @@ feature 'Displaying properties' do
 
     click_button 'View More'
 
-    # expect(page).to have_content('Cottage 1')
-    # expect(page).to have_content('A lovely place')
-    # expect(page).to have_content('£15 per night')
+    expect(page).to have_content('Cottage 1')
+    expect(page).to have_content('A lovely place')
+    expect(page).to have_content('£15 per night')
   end
 end
