@@ -1,11 +1,20 @@
 feature 'User can update a property' do
   scenario 'Updating a property' do
-    letter = User.register(name: 'Lucas', username: 'sacullezzar', email: 'lucas.razzell@gmail.com', password: 'pass123')
-    property = Property.create(name: 'House', description: 'a small house', ppn: 5, letter_id: letter.id)
-    visit('/')
+    letter = User.register(name: "Name", username: "username", email: "test@test.com", password: "password")
+    Property.create(name: 'Cottage 1', description: 'A lovely place', ppn: 15, letter_id: letter.id)
+    Property.create(name: 'Cottage 2', description: 'A lovelier place', ppn: 20, letter_id: letter.id)
+    Property.create(name: 'Cottage 3', description: 'The loveliest place', ppn: 25, letter_id: letter.id)
 
-    expect(page).to have_content('House')
-    click_button 'update'
+    visit('/')
+    click_button 'login'
+    fill_in :username, with: 'username'
+    fill_in :password, with: 'password'
+    click_button('submit')
+    click_button('My Properties')
+
+
+    expect(page).to have_content('Cottage 1')
+    first('.property').click_button 'Update'
 
     fill_in :name, with: "Flat"
     fill_in :description, with: 'tiny'
@@ -14,6 +23,6 @@ feature 'User can update a property' do
     click_button 'save'
 
     expect(page).to have_content('Flat')
-    expect(page).to have_content('£20 per night')
+    expect(page).to_not have_content('Cottage 1')
   end
 end

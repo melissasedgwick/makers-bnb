@@ -62,14 +62,14 @@ class MakersBnB < Sinatra::Base
     redirect('/')
   end
 
-  post '/property/update/:id' do
+  get '/property/update/:id' do
     @property = Property.find(id: params[:id])
     erb :update
   end
 
   post '/update/:id' do
     Property.update(id: params[:id],name: params[:name],description: params[:description],ppn: params[:ppn])
-    redirect('/')
+    redirect('/my-properties')
   end
 
   get '/my-properties' do
