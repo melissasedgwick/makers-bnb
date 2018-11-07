@@ -38,7 +38,7 @@ class MakersBnB < Sinatra::Base
   post '/authenticating' do
     user = User.auth(params['username'], params['password'])
       if user
-        session[:current_user] = user.name
+        session[:current_user] = user
         redirect('/')
       else
         flash[:notice] = 'Incorrect login details!'
@@ -69,6 +69,13 @@ class MakersBnB < Sinatra::Base
   post '/update/:id' do
     Property.update(id: params[:id],name: params[:name],description: params[:description],ppn: params[:ppn])
     redirect('/')
+  end
+
+  get '/view_bookings' do
+    @user = session[:current_user]
+
+    @bookings = Booking.list_my_bookings(id: @user.id)
+    erb :view_bookings
   end
 
   run! if app_file == $0

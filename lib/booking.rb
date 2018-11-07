@@ -1,14 +1,16 @@
 class Booking
 
-  attr_reader :id, :date, :property_id, :renter_id, :letter_id, :approved
+  attr_reader :id, :date, :property_id, :renter_id, :letter_id, :approved, :property_name, :ppn
 
-  def initialize(id:, date:, property_id:, renter_id: nil, letter_id: nil, approved: nil)
+  def initialize(id:, date:, property_id:, renter_id: nil, letter_id: nil, approved: nil, property_name: nil, ppn: nil)
     @id = id
     @date = date
     @property_id = property_id
     @renter_id = renter_id
     @letter_id = letter_id
     @approved = approved
+    @property_name = property_name
+    @ppn = ppn
   end
 
   def self.submit_availability(date:, property_id:)
@@ -65,5 +67,23 @@ class Booking
       renter_id: result[0]['renter_id'],
       approved: result[0]['approved']
     )
+  end
+
+  def self.list_my_bookings(id:)
+    result = DatabaseConnection.query("SELECT bookings.id, bookings.date, bookings.property_id, bookings.renter_id, bookings.letter_id, bookings.approved, properties.name, properties.price_per_night FROM bookings INNER JOIN properties ON bookings.property_id = properties.id")
+    output = []
+
+    result.each do |booking|
+      output.push(Booking.new(id: booking['id'],
+      date: booking['date'],
+      property_id: booking['property_id'],
+      renter_id: booking['renter_id'],
+      approved: booking['approved'],
+      property_name: booking['name'],
+      ppn: booking['price_per_night']
+    )
+  )
+    return output
+  end
   end
 end
