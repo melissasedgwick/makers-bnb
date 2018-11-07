@@ -3,14 +3,12 @@ feature 'User can add a property' do
     user = User.register(name: 'Lucas', username: 'sacullezzar', email: 'lucas.razzell@gmail.com', password: 'pass123')
 
     visit ('/')
-
     click_button 'login'
 
     fill_in :username, with: 'sacullezzar'
     fill_in :password, with: 'pass123'
 
     click_button 'submit'
-
     click_button 'Add property'
 
     fill_in :name, with: 'Cottage'
