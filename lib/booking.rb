@@ -2,7 +2,7 @@ class Booking
 
   attr_reader :id, :date, :property_id, :renter_id, :letter_id, :approved
 
-  def initialize(id:, date:, property_id:, renter_id: nil, letter_id: nil, approved: false)
+  def initialize(id:, date:, property_id:, renter_id: nil, letter_id: nil, approved: nil)
     @id = id
     @date = date
     @property_id = property_id
@@ -35,13 +35,35 @@ class Booking
     date.gsub!('/', '-')
     raise "Date unavailable" if Booking.check_availability(property_id: property_id) == nil
     raise "Date unavailable" if !Booking.check_availability(property_id: property_id).include?(date)
-    result = DatabaseConnection.query("UPDATE bookings SET renter_id = #{renter_id} WHERE property_id = #{property_id} AND date = '#{date}'
-      RETURNING id, date, property_id, renter_id;")
+    result = DatabaseConnection.query("UPDATE bookings SET renter_id = #{renter_id}, approved = false WHERE property_id = #{property_id} AND date = '#{date}'
+      RETURNING id, date, property_id, renter_id, approved;")
     Booking.new(id: result[0]['id'],
       date: result[0]['date'],
       property_id: result[0]['property_id'],
-      renter_id: result[0]['renter_id']
+      renter_id: result[0]['renter_id'],
+      approved: result[0]['approved']
     )
   end
 
+  def self.confirm_booking(id:)
+    result = DatabaseConnection.query("UPDATE bookings SET approved = true WHERE id = #{id}
+      RETURNING id, date, property_id, renter_id, approved;")
+    Booking.new(id: result[0]['id'],
+      date: result[0]['date'],
+      property_id: result[0]['property_id'],
+      renter_id: result[0]['renter_id'],
+      approved: result[0]['approved']
+    )
+  end
+
+  def self.deny_booking(id:)
+    result = DatabaseConnection.query("UPDATE bookings SET approved = false WHERE id = #{id}
+      RETURNING id, date, property_id, renter_id, approved;")
+    Booking.new(id: result[0]['id'],
+      date: result[0]['date'],
+      property_id: result[0]['property_id'],
+      renter_id: result[0]['renter_id'],
+      approved: result[0]['approved']
+    )
+  end
 end
