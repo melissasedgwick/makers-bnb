@@ -43,13 +43,25 @@ describe Booking do
 
     it 'adds request to bookings table if date and property is available' do
       Booking.submit_availability(date: "2018/10/15", property_id: @property.id)
-
       booking = Booking.request_booking(date: "2018/10/15", property_id: @property.id, renter_id: @user.id)
+
       expect(booking.date).to eq "2018-10-15"
       expect(booking.property_id).to eq @property.id
       expect(booking.renter_id).to eq @user.id
-      expect(booking.approved).to eq false
+      expect(booking.approved).to eq "f"
     end
   end
 
+  describe '#confirm_booking' do
+    it 'adds true to booking approval' do
+      Booking.submit_availability(date: "2018/10/15", property_id: @property.id)
+      request = Booking.request_booking(date: "2018/10/15", property_id: @property.id, renter_id: @user.id)
+      booking = Booking.confirm_booking(id: request.id)
+
+      expect(booking.date).to eq "2018-10-15"
+      expect(booking.property_id).to eq @property.id
+      expect(booking.renter_id).to eq @user.id
+      expect(booking.approved).to eq "t"
+    end
+  end
 end
