@@ -64,4 +64,17 @@ describe Booking do
       expect(booking.approved).to eq "t"
     end
   end
+
+  describe '#deny_booking' do
+    it 'adds false to booking approval' do
+      Booking.submit_availability(date: "2018/10/15", property_id: @property.id)
+      request = Booking.request_booking(date: "2018/10/15", property_id: @property.id, renter_id: @user.id)
+      booking = Booking.deny_booking(id: request.id)
+
+      expect(booking.date).to eq "2018-10-15"
+      expect(booking.property_id).to eq @property.id
+      expect(booking.renter_id).to eq @user.id
+      expect(booking.approved).to eq "f"
+    end
+  end
 end

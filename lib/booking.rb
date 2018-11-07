@@ -55,4 +55,15 @@ class Booking
       approved: result[0]['approved']
     )
   end
+
+  def self.deny_booking(id:)
+    result = DatabaseConnection.query("UPDATE bookings SET approved = false WHERE id = #{id}
+      RETURNING id, date, property_id, renter_id, approved;")
+    Booking.new(id: result[0]['id'],
+      date: result[0]['date'],
+      property_id: result[0]['property_id'],
+      renter_id: result[0]['renter_id'],
+      approved: result[0]['approved']
+    )
+  end
 end
