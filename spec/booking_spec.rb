@@ -13,4 +13,15 @@ describe Booking do
     end
   end
 
+  describe '#check_availability' do
+    it 'returns dates a property is available' do
+      property = Property.create(name: 'Fancy Place', description: 'A fancy place', ppn: 20)
+      Booking.submit_availability(date: "2018/10/15", property_id: property.id)
+      Booking.submit_availability(date: "2018/10/17", property_id: property.id)
+      Booking.submit_availability(date: "2018/11/18", property_id: property.id)
+
+      expect(Booking.check_availability(property_id: property.id)).to eq(["2018-10-15", "2018-10-17", "2018-11-18"])
+    end
+  end
+
 end
