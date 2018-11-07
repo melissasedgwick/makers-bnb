@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/admin/Projects/makers-bnb/makers-bnb/spec/comms_spec.rb": [
+      "/Users/aimeecraig/Projects/Makers Academy/Week 6/makers-bnb/spec/comms_spec.rb": [
         null,
         null,
         null,
@@ -11,7 +11,15 @@
         null,
         null
       ],
-      "/Users/admin/Projects/makers-bnb/makers-bnb/spec/features/add_property_feature_spec.rb": [
+      "/Users/aimeecraig/Projects/Makers Academy/Week 6/makers-bnb/spec/features/add_property_feature_spec.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
         1,
         1,
         null,
@@ -19,19 +27,19 @@
         null,
         1,
         null,
-        0,
-        0,
-        0,
+        1,
+        1,
+        1,
         null,
-        0,
+        1,
         null,
-        0,
-        0,
+        1,
+        1,
         null,
         null,
         null
       ],
-      "/Users/admin/Projects/makers-bnb/makers-bnb/spec/features/register_user_spec.rb": [
+      "/Users/aimeecraig/Projects/Makers Academy/Week 6/makers-bnb/spec/features/register_user_spec.rb": [
         1,
         1,
         1,
@@ -79,7 +87,7 @@
         null,
         null
       ],
-      "/Users/admin/Projects/makers-bnb/makers-bnb/spec/features/show_properties_spec.rb": [
+      "/Users/aimeecraig/Projects/Makers Academy/Week 6/makers-bnb/spec/features/show_properties_spec.rb": [
         1,
         1,
         1,
@@ -97,7 +105,7 @@
         null,
         null
       ],
-      "/Users/admin/Projects/makers-bnb/makers-bnb/spec/property_spec.rb": [
+      "/Users/aimeecraig/Projects/Makers Academy/Week 6/makers-bnb/spec/property_spec.rb": [
         1,
         null,
         1,
@@ -143,7 +151,7 @@
         null,
         null
       ],
-      "/Users/admin/Projects/makers-bnb/makers-bnb/spec/user_spec.rb": [
+      "/Users/aimeecraig/Projects/Makers Academy/Week 6/makers-bnb/spec/user_spec.rb": [
         1,
         null,
         1,
@@ -162,6 +170,6 @@
         null
       ]
     },
-    "timestamp": 1541522360
+    "timestamp": 1541584612
   }
 }
