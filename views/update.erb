@@ -1,0 +1,11 @@
+<html>
+<head></head>
+<body>
+  <form method="post" action="/update/<%= @property.id %>">
+    <input type="text" name="name" value="<%= @property.name %>" />
+    <input type="text" name="description" value="<%= @property.description %>" />
+    <input type="value" name="ppn" value="<%= @property.ppn %>" />
+    <input type="submit" value="save" />
+  </form>
+</body>
+</html>
