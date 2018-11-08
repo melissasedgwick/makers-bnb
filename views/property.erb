@@ -11,6 +11,11 @@
     <h2>Dates available:</h2>
     <% @availability.each do |date| %>
       <%= date %>
+      <% if @user %>
+      <form action='/request/<%= @property.id %>/<%= date %>' method="post">
+        <input type="submit" value="Request Booking">
+      </form>
+      <% end %>
     <% end %>
   <% end %>
 
