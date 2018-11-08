@@ -26,9 +26,17 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/registration' do
-    user = User.register(name: params['name'], username: params['username'], email: params['email'], password: params['password'])
-    session[:current_user] = user
-    redirect('/')
+    if User.email_exists?(params[:email])
+      flash[:notice] = 'Email already in use!'
+      redirect ('/register')
+    elsif User.username_exists?(params[:username])
+      flash[:notice] = 'Username already in use!'
+      redirect ('/register')
+    else
+      user = User.register(name: params['name'], username: params['username'], email: params['email'], password: params['password'])
+      session[:current_user] = user
+      redirect('/')
+    end
   end
 
   get '/login' do
