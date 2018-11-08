@@ -7,5 +7,26 @@
     <input type="value" name="ppn" value="<%= @property.ppn %>" />
     <input type="submit" value="save" />
   </form>
+  <form method="post" action="/add-availability/<%= @property.id %>">
+  <input type='text' name='day' placeholder='Date'><br><br>
+<select name="months">
+  <option value="january" name='jan'>January</option>
+  <option value="february" name='feb'>February</option>
+  <option value="march" name='mar'>March</option>
+  <option value="april" name='apr'>April</option>
+  <option value="may" name='may'>May</option>
+  <option value="june" name='jun'>June</option>
+  <option value="july" name='jul'>July</option>
+  <option value="august" name='aug'>August</option>
+  <option value="september" name='sep'>September</option>
+  <option value="october" name='oct'>October</option>
+  <option value="november" name='nov'>November</option>
+  <option value="december" name='dec'>December</option>
+</select>
+<input type='text' name='year' placeholder='Year'><br><br>
+<input type="hidden" value="<%= @property.id %>" name="id" />
+<input type='submit' id="<%= @property_id %>" value='add'>
+</form>
+
 </body>
 </html>

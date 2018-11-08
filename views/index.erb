@@ -27,14 +27,16 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="table">
     <% @properties.each do |property| %>
-    <%= property.name %>
-    £<%= property.ppn %> per night.
-    <br>
-    <form action="/property/view/<%= property.id %>" method="get">
-      <input type="submit" id="view_<%= property.id %>" value="View More">
-    </form>
+    <div class="property">
+      <%= property.name %>
+      £<%= property.ppn %> per night.
+      <br>
+      <form action="/property/view/<%= property.id %>" method="get">
+        <input type="submit" id="view_<%= property.id %>" value="View More">
+      </form>
+    </div>
     <% end %>
   </div>
 

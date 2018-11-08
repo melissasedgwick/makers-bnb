@@ -475,6 +475,34 @@
         1,
         1,
         null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
         null
       ],
       "/Users/lucas.razzell/Desktop/Apprenticeship/Javascript/makers-bnb/spec/property_spec.rb": [
@@ -593,6 +621,6 @@
         null
       ]
     },
-    "timestamp": 1541680350
+    "timestamp": 1541691214
   }
 }
