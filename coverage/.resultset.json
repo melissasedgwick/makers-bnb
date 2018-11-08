@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/aimeecraig/Projects/Makers Academy/Week 6/makers-bnb/spec/booking_spec.rb": [
+      "/Users/melissasedgwick/Projects/Makers/Week_6/makers-bnb/spec/booking_spec.rb": [
         1,
         1,
         1,
@@ -96,7 +96,7 @@
         null,
         null
       ],
-      "/Users/aimeecraig/Projects/Makers Academy/Week 6/makers-bnb/spec/features/account_page_spec.rb": [
+      "/Users/melissasedgwick/Projects/Makers/Week_6/makers-bnb/spec/features/account_page_spec.rb": [
         1,
         1,
         1,
@@ -205,6 +205,97 @@
         1,
         1,
         null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
         1,
         null,
         1,
@@ -217,7 +308,7 @@
         null,
         null
       ],
-      "/Users/aimeecraig/Projects/Makers Academy/Week 6/makers-bnb/spec/features/add_property_feature_spec.rb": [
+      "/Users/melissasedgwick/Projects/Makers/Week_6/makers-bnb/spec/features/add_property_feature_spec.rb": [
         1,
         1,
         1,
@@ -277,7 +368,7 @@
         null,
         null
       ],
-      "/Users/aimeecraig/Projects/Makers Academy/Week 6/makers-bnb/spec/features/feat_view_my_bookings_spec.rb": [
+      "/Users/melissasedgwick/Projects/Makers/Week_6/makers-bnb/spec/features/feat_view_my_bookings_spec.rb": [
         1,
         1,
         1,
@@ -307,7 +398,7 @@
         null,
         null
       ],
-      "/Users/aimeecraig/Projects/Makers Academy/Week 6/makers-bnb/spec/features/register_user_spec.rb": [
+      "/Users/melissasedgwick/Projects/Makers/Week_6/makers-bnb/spec/features/register_user_spec.rb": [
         1,
         1,
         1,
@@ -397,7 +488,7 @@
         null,
         null
       ],
-      "/Users/aimeecraig/Projects/Makers Academy/Week 6/makers-bnb/spec/features/request_booking_spec.rb": [
+      "/Users/melissasedgwick/Projects/Makers/Week_6/makers-bnb/spec/features/request_booking_spec.rb": [
         1,
         1,
         1,
@@ -426,7 +517,7 @@
         null,
         null
       ],
-      "/Users/aimeecraig/Projects/Makers Academy/Week 6/makers-bnb/spec/features/show_properties_spec.rb": [
+      "/Users/melissasedgwick/Projects/Makers/Week_6/makers-bnb/spec/features/show_properties_spec.rb": [
         1,
         1,
         1,
@@ -469,7 +560,7 @@
         null,
         null
       ],
-      "/Users/aimeecraig/Projects/Makers Academy/Week 6/makers-bnb/spec/features/update_property_spec.rb": [
+      "/Users/melissasedgwick/Projects/Makers/Week_6/makers-bnb/spec/features/update_property_spec.rb": [
         1,
         1,
         1,
@@ -499,7 +590,7 @@
         null,
         null
       ],
-      "/Users/aimeecraig/Projects/Makers Academy/Week 6/makers-bnb/spec/property_spec.rb": [
+      "/Users/melissasedgwick/Projects/Makers/Week_6/makers-bnb/spec/property_spec.rb": [
         1,
         1,
         null,
@@ -578,7 +669,7 @@
         null,
         null
       ],
-      "/Users/aimeecraig/Projects/Makers Academy/Week 6/makers-bnb/spec/user_spec.rb": [
+      "/Users/melissasedgwick/Projects/Makers/Week_6/makers-bnb/spec/user_spec.rb": [
         1,
         null,
         1,
@@ -615,6 +706,6 @@
         null
       ]
     },
-    "timestamp": 1541685716
+    "timestamp": 1541687937
   }
 }

@@ -38,7 +38,7 @@ class Booking
     date.gsub!('/', '-')
     raise "Date unavailable" if Booking.check_availability(property_id: property_id) == nil
     raise "Date unavailable" if !Booking.check_availability(property_id: property_id).include?(date)
-    result = DatabaseConnection.query("UPDATE bookings SET renter_id = #{renter_id}, approved = false WHERE property_id = #{property_id} AND date = '#{date}'
+    result = DatabaseConnection.query("UPDATE bookings SET renter_id = #{renter_id} WHERE property_id = #{property_id} AND date = '#{date}'
       RETURNING id, date, property_id, renter_id, approved;")
     Booking.new(id: result[0]['id'],
       date: result[0]['date'],

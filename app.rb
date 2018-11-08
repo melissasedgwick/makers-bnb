@@ -116,5 +116,15 @@ class MakersBnB < Sinatra::Base
     erb :account
   end
 
+  post '/booking/approve/:id' do
+    Booking.confirm_booking(id: params[:id])
+    redirect '/account'
+  end
+
+  post '/booking/deny/:id' do
+    Booking.deny_booking(id: params[:id])
+    redirect '/account'
+  end
+
   run! if app_file == $0
 end

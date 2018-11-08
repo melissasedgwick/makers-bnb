@@ -1,5 +1,5 @@
 feature 'Account page' do
-  it "shows the user's properties" do
+  scenario "shows the user's properties" do
     user = User.register(name: 'Lucas', username: 'sacullezzar', email: 'lucas.razzell@gmail.com', password: 'pass123')
     property = Property.create(name: "House", description: "Sweet pad!", ppn: 10, letter_id: user.id)
     visit ('/')
@@ -15,7 +15,7 @@ feature 'Account page' do
     expect(page).to have_button "Update"
   end
 
-  it 'it shows multiple user properties' do
+  scenario 'it shows multiple user properties' do
     letter = User.register(name: "Name", username: "username", email: "test@test.com", password: "password")
     Property.create(name: 'Cottage 1', description: 'A lovely place', ppn: 15, letter_id: letter.id)
     Property.create(name: 'Cottage 2', description: 'A lovelier place', ppn: 20, letter_id: letter.id)
@@ -34,7 +34,7 @@ feature 'Account page' do
     expect(page).to have_content('Cottage 3')
   end
 
-  it 'it shows booking requests per property' do
+  scenario 'it shows booking requests per property' do
     letter = User.register(name: "Name", username: "username", email: "test@test.com", password: "password")
     user = User.register(name: 'Lucas', username: 'sacullezzar', email: 'lucas.razzell@gmail.com', password: 'pass123')
     property = Property.create(name: "House", description: "Sweet pad!", ppn: 10, letter_id: user.id)
@@ -51,7 +51,7 @@ feature 'Account page' do
     expect(page).to have_content request.date
   end
 
-  it 'it shows a list of confirmed bookings for the renter' do
+  scenario 'it shows a list of confirmed bookings for the renter' do
     letter = User.register(name: "Name", username: "username", email: "test@test.com", password: "password")
     user = User.register(name: 'Lucas', username: 'sacullezzar', email: 'lucas.razzell@gmail.com', password: 'pass123')
     property = Property.create(name: "House", description: "Sweet pad!", ppn: 10, letter_id: user.id)
@@ -70,7 +70,7 @@ feature 'Account page' do
     expect(page).to have_content "Approved"
   end
 
-  it 'shows a pending booking' do
+  scenario 'shows a pending booking' do
     letter = User.register(name: "Name", username: "username", email: "test@test.com", password: "password")
     user = User.register(name: 'Lucas', username: 'sacullezzar', email: 'lucas.razzell@gmail.com', password: 'pass123')
     property = Property.create(name: "House", description: "Sweet pad!", ppn: 10, letter_id: user.id)
@@ -88,7 +88,7 @@ feature 'Account page' do
     expect(page).to have_content "Pending"
   end
 
-  it 'lists approved bookings for the logged in user' do
+  scenario 'lists approved bookings for the logged in user' do
     user = User.register(name: 'Lucas', username: 'sacullezzar', email: 'lucas.razzell@gmail.com', password: 'pass123')
     user2 = User.register(name: 'Aimee', username: 'ac', email: 'aimee@gmail.com', password: 'pass')
     letter = User.register(name: 'Lucy', username: 'famalam', email: 'penis@flytrap.com', password: 'peniarecool')
@@ -107,7 +107,6 @@ feature 'Account page' do
     fill_in :password, with: 'pass123'
 
     click_button 'submit'
-
     click_button 'account_page'
 
     expect(page).to have_content('Your Bookings')
@@ -115,5 +114,97 @@ feature 'Account page' do
     expect(page).to have_content('Cottage 1')
     expect(page).to have_content('15')
     expect(page).not_to have_content('2018-06-07')
+  end
+
+  scenario 'can approve a booking request' do
+    user = User.register(name: 'Lucas', username: 'sacullezzar', email: 'lucas.razzell@gmail.com', password: 'pass123')
+    letter = User.register(name: 'Lucy', username: 'famalam', email: 'penis@flytrap.com', password: 'peniarecool')
+    property = Property.create(name: 'Cottage 1', description: 'A lovely place', ppn: 15, letter_id: letter.id)
+
+    Booking.submit_availability(date: "2018/06/06", property_id: property.id, letter_id: letter.id)
+    request = Booking.request_booking(date: "2018/06/06", property_id: property.id, renter_id: user.id)
+
+    visit ('/')
+    click_button 'login'
+
+    fill_in :username, with: 'famalam'
+    fill_in :password, with: 'peniarecool'
+
+    click_button 'submit'
+    click_button 'account_page'
+
+    expect(page).to have_content('2018-06-06')
+    expect(page).to have_content('Cottage 1')
+    expect(page).to have_content('Pending')
+    expect(page).to have_button('Approve')
+    expect(page).to have_button('Deny')
+
+    click_button('Approve')
+
+    expect(page).to have_content('2018-06-06')
+    expect(page).to have_content('Cottage 1')
+    expect(page).to have_content('Approved')
+  end
+
+  scenario 'can approve a booking request' do
+    user = User.register(name: 'Lucas', username: 'sacullezzar', email: 'lucas.razzell@gmail.com', password: 'pass123')
+    letter = User.register(name: 'Lucy', username: 'famalam', email: 'penis@flytrap.com', password: 'peniarecool')
+    property = Property.create(name: 'Cottage 1', description: 'A lovely place', ppn: 15, letter_id: letter.id)
+
+    Booking.submit_availability(date: "2018/06/06", property_id: property.id, letter_id: letter.id)
+    request = Booking.request_booking(date: "2018/06/06", property_id: property.id, renter_id: user.id)
+
+    visit ('/')
+    click_button 'login'
+
+    fill_in :username, with: 'famalam'
+    fill_in :password, with: 'peniarecool'
+
+    click_button 'submit'
+    click_button 'account_page'
+
+    expect(page).to have_content('2018-06-06')
+    expect(page).to have_content('Cottage 1')
+    expect(page).to have_content('Pending')
+    expect(page).to have_button('Approve')
+    expect(page).to have_button('Deny')
+
+    click_button('Deny')
+
+    expect(page).to have_content('2018-06-06')
+    expect(page).to have_content('Cottage 1')
+    expect(page).to have_content('Denied')
+  end
+
+  scenario 'removes approve and deny buttons when approved/denied' do
+    user = User.register(name: 'Lucas', username: 'sacullezzar', email: 'lucas.razzell@gmail.com', password: 'pass123')
+    letter = User.register(name: 'Lucy', username: 'famalam', email: 'penis@flytrap.com', password: 'peniarecool')
+    property = Property.create(name: 'Cottage 1', description: 'A lovely place', ppn: 15, letter_id: letter.id)
+
+    Booking.submit_availability(date: "2018/06/06", property_id: property.id, letter_id: letter.id)
+    request = Booking.request_booking(date: "2018/06/06", property_id: property.id, renter_id: user.id)
+
+    visit ('/')
+    click_button 'login'
+
+    fill_in :username, with: 'famalam'
+    fill_in :password, with: 'peniarecool'
+
+    click_button 'submit'
+    click_button 'account_page'
+
+    expect(page).to have_content('2018-06-06')
+    expect(page).to have_content('Cottage 1')
+    expect(page).to have_content('Pending')
+    expect(page).to have_button('Approve')
+    expect(page).to have_button('Deny')
+
+    click_button('Deny')
+
+    expect(page).to have_content('2018-06-06')
+    expect(page).to have_content('Cottage 1')
+    expect(page).to have_content('Denied')
+    expect(page).not_to have_button('Approve')
+    expect(page).not_to have_button('Deny')
   end
 end
