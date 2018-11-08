@@ -18,6 +18,15 @@
         <form method="get" action="property/update/<%= property.id %>">
           <input type="submit" id="update" value="Update">
         </form>
+        <h3>Bookings</h3>
+        <% Booking.list_by_property(property_id: property.id).each do |booking| %>
+          <%= booking.date %>
+          <% if booking.approved %>
+            <%= "Approved" %>
+          <% else %>
+            <%= "Pending" %>
+          <% end %>
+        <% end %>
       </li>
     <% end %>
   </div>
@@ -28,6 +37,11 @@
       <%= booking.date %>
       <%= booking.property_name %>
       <%= booking.ppn %>
+      <% if booking.approved %>
+        <%= "Approved" %>
+      <% else %>
+        <%= "Pending" %>
+      <% end %>
     <% end %>
   </div>
 </body>

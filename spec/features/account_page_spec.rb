@@ -33,4 +33,40 @@ feature 'Account page' do
     expect(page).to have_content('Cottage 2')
     expect(page).to have_content('Cottage 3')
   end
+
+  scenario 'it shows booking requests per property' do
+    letter = User.register(name: "Name", username: "username", email: "test@test.com", password: "password")
+    user = User.register(name: 'Lucas', username: 'sacullezzar', email: 'lucas.razzell@gmail.com', password: 'pass123')
+    property = Property.create(name: "House", description: "Sweet pad!", ppn: 10, letter_id: user.id)
+    Booking.submit_availability(date: "2018/06/06", property_id: property.id)
+    request = Booking.request_booking(date: "2018/06/06", property_id: property.id, renter_id: user.id)
+
+    visit ('/')
+    click_button 'login'
+    fill_in :username, with: 'sacullezzar'
+    fill_in :password, with: 'pass123'
+    click_button 'submit'
+    click_button 'account_page'
+    expect(page).to have_content "Bookings"
+    expect(page).to have_content request.date
+  end
+
+  scenario 'it shows a list of confirmed bookings for the renter' do
+    letter = User.register(name: "Name", username: "username", email: "test@test.com", password: "password")
+    user = User.register(name: 'Lucas', username: 'sacullezzar', email: 'lucas.razzell@gmail.com', password: 'pass123')
+    property = Property.create(name: "House", description: "Sweet pad!", ppn: 10, letter_id: user.id)
+    Booking.submit_availability(date: "2018/06/06", property_id: property.id)
+    request = Booking.request_booking(date: "2018/06/06", property_id: property.id, renter_id: user.id)
+    Booking.confirm_booking(id: request.id)
+
+    visit ('/')
+    click_button 'login'
+    fill_in :username, with: 'sacullezzar'
+    fill_in :password, with: 'pass123'
+    click_button 'submit'
+    click_button 'account_page'
+
+    expect(page).to have_content request.date
+    expect(page).to have_content "Approved"
+  end
 end
