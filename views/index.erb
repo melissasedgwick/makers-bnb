@@ -8,11 +8,11 @@
       float: right;
     }
 
-    .property-list {
+    .table {
       text-align: center;
     }
 
-    .properties {
+    .property {
       margin-top: 20px;
       margin-bottom: 20px;
       margin-left: 200px;
@@ -95,9 +95,9 @@
     </div>
   </div>
 
-  <div class="property-list table">
+  <div class="table">
     <% @properties.each do |property| %>
-    <div class="properties">
+    <div class="property">
     <div class="property-name">
       <%= property.name %>
     </div>

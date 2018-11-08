@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/lucas.razzell/Desktop/Apprenticeship/Javascript/makers-bnb/spec/booking_spec.rb": [
+      "/Users/admin/Projects/makers-bnb/makers-bnb/spec/booking_spec.rb": [
         1,
         1,
         1,
@@ -96,7 +96,7 @@
         null,
         null
       ],
-      "/Users/lucas.razzell/Desktop/Apprenticeship/Javascript/makers-bnb/spec/features/account_page_spec.rb": [
+      "/Users/admin/Projects/makers-bnb/makers-bnb/spec/features/account_page_spec.rb": [
         1,
         1,
         1,
@@ -308,7 +308,7 @@
         null,
         null
       ],
-      "/Users/lucas.razzell/Desktop/Apprenticeship/Javascript/makers-bnb/spec/features/add_property_feature_spec.rb": [
+      "/Users/admin/Projects/makers-bnb/makers-bnb/spec/features/add_property_feature_spec.rb": [
         1,
         1,
         1,
@@ -368,7 +368,7 @@
         null,
         null
       ],
-      "/Users/lucas.razzell/Desktop/Apprenticeship/Javascript/makers-bnb/spec/features/feat_view_my_bookings_spec.rb": [
+      "/Users/admin/Projects/makers-bnb/makers-bnb/spec/features/feat_view_my_bookings_spec.rb": [
         1,
         1,
         1,
@@ -398,7 +398,7 @@
         null,
         null
       ],
-      "/Users/lucas.razzell/Desktop/Apprenticeship/Javascript/makers-bnb/spec/features/register_user_spec.rb": [
+      "/Users/admin/Projects/makers-bnb/makers-bnb/spec/features/register_user_spec.rb": [
         1,
         1,
         1,
@@ -488,7 +488,7 @@
         null,
         null
       ],
-      "/Users/lucas.razzell/Desktop/Apprenticeship/Javascript/makers-bnb/spec/features/request_booking_spec.rb": [
+      "/Users/admin/Projects/makers-bnb/makers-bnb/spec/features/request_booking_spec.rb": [
         1,
         1,
         1,
@@ -538,7 +538,7 @@
         null,
         null
       ],
-      "/Users/lucas.razzell/Desktop/Apprenticeship/Javascript/makers-bnb/spec/features/show_properties_spec.rb": [
+      "/Users/admin/Projects/makers-bnb/makers-bnb/spec/features/show_properties_spec.rb": [
         1,
         1,
         1,
@@ -581,7 +581,7 @@
         null,
         null
       ],
-      "/Users/lucas.razzell/Desktop/Apprenticeship/Javascript/makers-bnb/spec/features/update_property_spec.rb": [
+      "/Users/admin/Projects/makers-bnb/makers-bnb/spec/features/update_property_spec.rb": [
         1,
         1,
         1,
@@ -639,7 +639,7 @@
         null,
         null
       ],
-      "/Users/lucas.razzell/Desktop/Apprenticeship/Javascript/makers-bnb/spec/property_spec.rb": [
+      "/Users/admin/Projects/makers-bnb/makers-bnb/spec/property_spec.rb": [
         1,
         1,
         null,
@@ -718,7 +718,7 @@
         null,
         null
       ],
-      "/Users/lucas.razzell/Desktop/Apprenticeship/Javascript/makers-bnb/spec/user_spec.rb": [
+      "/Users/admin/Projects/makers-bnb/makers-bnb/spec/user_spec.rb": [
         1,
         null,
         1,
@@ -755,5 +755,6 @@
         null
       ]
     },
+    "timestamp": 1541695146
   }
 }
