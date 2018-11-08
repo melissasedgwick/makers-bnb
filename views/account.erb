@@ -1,0 +1,18 @@
+<html>
+<head>
+  <title>Makers BnB by Team LAMP</title>
+</head>
+<body>
+  <h1>Hi <%= @user.name %>, here is your account!</h1>
+  <div class="my_properties">
+    <h2>Your Properties</h2>
+    <% @properties.each do |property| %>
+      <%= property.name %>
+      £<%= property.ppn %> per night.
+      <form method="get" action="property/update/<%= property.id %>">
+        <input type="submit" id="update" value="Update">
+      </form>
+    <% end %>
+  </div>
+</body>
+</html>

@@ -87,5 +87,11 @@ class MakersBnB < Sinatra::Base
     erb :view_bookings
   end
 
+  get '/account' do
+    @user = session[:current_user]
+    @properties = Property.find_by_letter(letter_id: @user.id)
+    erb :account
+  end
+
   run! if app_file == $0
 end
