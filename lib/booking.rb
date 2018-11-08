@@ -26,10 +26,12 @@ class Booking
 
   def self.check_availability(property_id:)
     dates = []
-    result = DatabaseConnection.query("SELECT date FROM bookings WHERE property_id = #{property_id};")
+    result = DatabaseConnection.query("SELECT date, approved FROM bookings WHERE property_id = #{property_id};")
     return nil unless result.any?
     result.each do |date|
-      dates << date['date']
+      unless date['approved'] == "t" 
+        dates << date['date']
+      end
     end
     return dates
   end
@@ -38,7 +40,7 @@ class Booking
     date.gsub!('/', '-')
     raise "Date unavailable" if Booking.check_availability(property_id: property_id) == nil
     raise "Date unavailable" if !Booking.check_availability(property_id: property_id).include?(date)
-    result = DatabaseConnection.query("UPDATE bookings SET renter_id = #{renter_id}, approved = false WHERE property_id = #{property_id} AND date = '#{date}'
+    result = DatabaseConnection.query("UPDATE bookings SET renter_id = #{renter_id} WHERE property_id = #{property_id} AND date = '#{date}'
       RETURNING id, date, property_id, renter_id, approved;")
     Booking.new(id: result[0]['id'],
       date: result[0]['date'],
@@ -71,7 +73,7 @@ class Booking
   end
 
   def self.list_my_bookings(id:)
-    result = DatabaseConnection.query("SELECT bookings.id, bookings.date, bookings.property_id, bookings.renter_id, bookings.letter_id, bookings.approved, properties.name, properties.price_per_night FROM bookings INNER JOIN properties ON bookings.property_id = properties.id")
+    result = DatabaseConnection.query("SELECT bookings.id, bookings.date, bookings.property_id, bookings.renter_id, bookings.letter_id, bookings.approved, properties.name, properties.price_per_night FROM bookings INNER JOIN properties ON bookings.property_id = properties.id WHERE renter_id = #{id}")
     output = []
 
     result.each do |booking|

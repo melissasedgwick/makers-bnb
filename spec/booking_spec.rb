@@ -50,7 +50,7 @@ describe Booking do
       expect(booking.date).to eq "2018-10-15"
       expect(booking.property_id).to eq @property.id
       expect(booking.renter_id).to eq @user.id
-      expect(booking.approved).to eq "f"
+      expect(booking.approved).to eq nil
     end
   end
 

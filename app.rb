@@ -103,7 +103,6 @@ class MakersBnB < Sinatra::Base
     @property = Property.find(id: params[:id])
     @availability = Booking.check_availability(property_id: params[:id])
     Booking.request_booking(date: params[:date],property_id: params[:id],renter_id: @user.id)
-    flash[:notice] = 'Your request has been submitted!'
     redirect '/request-submitted'
   end
 
@@ -122,6 +121,16 @@ class MakersBnB < Sinatra::Base
     @user = session[:current_user]
     Booking.submit_availability(date: params[:year] + params[:months] + params[:day], property_id: params[:id].to_i, letter_id: @user.id)
     redirect('/')
+
+  post '/booking/approve/:id' do
+    Booking.confirm_booking(id: params[:id])
+    redirect '/account'
+  end
+
+  post '/booking/deny/:id' do
+    Booking.deny_booking(id: params[:id])
+    redirect '/account'
+
   end
 
   run! if app_file == $0
