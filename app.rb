@@ -16,6 +16,8 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/property/view/:id' do
+  get '/property/view/:id' do
+    @user = session[:current_user]
     @property = Property.find(id: params[:id])
     @availability = Booking.check_availability(property_id: params[:id])
     erb :property
@@ -93,6 +95,19 @@ class MakersBnB < Sinatra::Base
 
     @bookings = Booking.list_my_bookings(id: @user.id)
     erb :view_bookings
+  end
+
+  post '/request/:id/:date' do
+    @user = session[:current_user]
+    @property = Property.find(id: params[:id])
+    @availability = Booking.check_availability(property_id: params[:id])
+    Booking.request_booking(date: params[:date],property_id: params[:id],renter_id: @user.id)
+    flash[:notice] = 'Your request has been submitted!'
+    redirect '/request-submitted'
+  end
+
+  get '/request-submitted' do
+    erb :request_submitted
   end
 
   run! if app_file == $0

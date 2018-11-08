@@ -20,6 +20,9 @@ feature 'Displaying properties' do
     Booking.submit_availability(date: "2018/10/15", property_id: property.id)
     Booking.submit_availability(date: "2018/10/17", property_id: property.id)
     Booking.submit_availability(date: "2018/11/18", property_id: property.id)
+    Booking.submit_availability(date: "2018/10/15", property_id: property.id, letter_id: letter.id)
+    Booking.submit_availability(date: "2018/10/17", property_id: property.id, letter_id: letter.id)
+    Booking.submit_availability(date: "2018/11/18", property_id: property.id, letter_id: letter.id)
 
     visit('/')
     click_button 'View More'

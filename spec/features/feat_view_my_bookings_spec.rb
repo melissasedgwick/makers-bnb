@@ -5,6 +5,7 @@ feature 'User can view all approved bookings' do
     property = Property.create(name: 'Cottage 1', description: 'A lovely place', ppn: 15, letter_id: letter.id)
 
     Booking.submit_availability(date: "2018/06/06", property_id: property.id)
+    Booking.submit_availability(date: "2018/06/06", property_id: property.id, letter_id: letter.id)
     request = Booking.request_booking(date: "2018/06/06", property_id: property.id, renter_id: user.id)
     Booking.confirm_booking(id: request.id)
 

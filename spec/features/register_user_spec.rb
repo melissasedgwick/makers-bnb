@@ -66,6 +66,7 @@ feature "user log in and out" do
     click_button('submit')
     expect(page).not_to have_content('Welcome')
     expect(page).to have_content('Username already in use!')
+  end
 
   scenario "shows the logout button when logged in" do
     visit('/')
@@ -77,11 +78,11 @@ feature "user log in and out" do
     expect(page).not_to have_button("register")
     expect(page).to have_button("logout")
   end
+
   scenario "shows the login button, when not logged in" do
     visit('/')
     expect(page).to have_button("login")
     expect(page).to have_button("register")
     expect(page).not_to have_button("logout")
-
   end
 end
