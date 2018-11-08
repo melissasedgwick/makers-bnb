@@ -14,4 +14,23 @@ feature 'Account page' do
     expect(page).to have_content "£10 per night"
     expect(page).to have_button "Update"
   end
+
+  scenario 'it shows multiple user properties' do
+    letter = User.register(name: "Name", username: "username", email: "test@test.com", password: "password")
+    Property.create(name: 'Cottage 1', description: 'A lovely place', ppn: 15, letter_id: letter.id)
+    Property.create(name: 'Cottage 2', description: 'A lovelier place', ppn: 20, letter_id: letter.id)
+    Property.create(name: 'Cottage 3', description: 'The loveliest place', ppn: 25, letter_id: letter.id)
+
+    visit('/')
+    click_button 'login'
+    fill_in :username, with: 'username'
+    fill_in :password, with: 'password'
+    click_button('submit')
+    click_button('account_page')
+
+    expect(page).to have_content('Your Properties')
+    expect(page).to have_content('Cottage 1')
+    expect(page).to have_content('Cottage 2')
+    expect(page).to have_content('Cottage 3')
+  end
 end

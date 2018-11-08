@@ -8,8 +8,6 @@ feature 'User can view all approved bookings' do
     request = Booking.request_booking(date: "2018/06/06", property_id: property.id, renter_id: user.id)
     Booking.confirm_booking(id: request.id)
 
-
-
     visit ('/')
     click_button 'login'
 
@@ -18,8 +16,9 @@ feature 'User can view all approved bookings' do
 
     click_button 'submit'
 
-    click_button 'view_bookings'
+    click_button 'account_page'
 
+    expect(page).to have_content('Your Bookings')
     expect(page).to have_content('2018-06-06')
     expect(page).to have_content('Cottage 1')
     expect(page).to have_content('15')

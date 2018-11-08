@@ -10,7 +10,7 @@ feature 'User can update a property' do
     fill_in :username, with: 'username'
     fill_in :password, with: 'password'
     click_button('submit')
-    click_button('My Properties')
+    click_button('account_page')
 
 
     expect(page).to have_content('Cottage 1')

@@ -90,6 +90,7 @@ class MakersBnB < Sinatra::Base
   get '/account' do
     @user = session[:current_user]
     @properties = Property.find_by_letter(letter_id: @user.id)
+    @bookings = Booking.list_my_bookings(id: @user.id)
     erb :account
   end
 
