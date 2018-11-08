@@ -21,7 +21,7 @@
         <h3>Bookings</h3>
         <% Booking.list_by_property(property_id: property.id).each do |booking| %>
           <%= booking.date %>
-          <% if booking.approved %>
+          <% if booking.approved == "t" %>
             <%= "Approved" %>
           <% else %>
             <%= "Pending" %>
@@ -37,7 +37,7 @@
       <%= booking.date %>
       <%= booking.property_name %>
       <%= booking.ppn %>
-      <% if booking.approved %>
+      <% if booking.approved == "t" %>
         <%= "Approved" %>
       <% else %>
         <%= "Pending" %>
