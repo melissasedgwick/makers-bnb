@@ -97,6 +97,7 @@ class MakersBnB < Sinatra::Base
     erb :view_bookings
   end
 
+<<<<<<< HEAD
 
   post '/request/:id/:date' do
     @user = session[:current_user]
@@ -111,6 +112,8 @@ class MakersBnB < Sinatra::Base
     erb :request_submitted
   end
 
+=======
+>>>>>>> 6cfa933ddb2b7f1db683e34ef964158d04302790
   get '/account' do
     @user = session[:current_user]
     @properties = Property.find_by_letter(letter_id: @user.id)
