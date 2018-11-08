@@ -5,15 +5,19 @@
 <body>
   <h1>Welcome to MakersBnB, <%= @user.name if @user %>!</h1>
   <div id="account controls">
+    <% if !@user %>
     <form method="get" action="/register">
       <input type="submit" value="Register" id="register" name="register">
     </form>
+
     <form method="get" action="/login">
       <input type="submit" value="Login" id="login" name="login">
     </form>
+    <% else %>
     <form method="post" action="/logout">
       <input type="submit" value="Logout" id="logout" name="logout">
     </form>
+      <% end %>
     <%= flash[:notice] %>
 
     <% if @user %>
