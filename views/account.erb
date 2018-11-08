@@ -1,0 +1,48 @@
+<html>
+<head>
+  <title>Makers BnB by Team LAMP</title>
+</head>
+<body>
+  <h1>Hi <%= @user.name %>, here is your account!</h1>
+  <div class="account_controls">
+    <form method="get" action="/add-property">
+      <input type="submit" id="add_property" value="Add Property">
+    </form>
+  </div>
+  <div class="my_properties">
+    <h2>Your Properties</h2>
+    <% @properties.each do |property| %>
+      <li class="property" id="property-<%= property.id %>">
+        <%= property.name %>
+        £<%= property.ppn %> per night.
+        <form method="get" action="property/update/<%= property.id %>">
+          <input type="submit" id="update" value="Update">
+        </form>
+        <h3>Bookings</h3>
+        <% Booking.list_by_property(property_id: property.id).each do |booking| %>
+          <%= booking.date %>
+          <% if booking.approved %>
+            <%= "Approved" %>
+          <% else %>
+            <%= "Pending" %>
+          <% end %>
+        <% end %>
+      </li>
+    <% end %>
+  </div>
+  <div class="my_bookings">
+    <h2>Your Bookings</h2>
+    <% @bookings.each do |booking| %>
+      <%= booking.id %>
+      <%= booking.date %>
+      <%= booking.property_name %>
+      <%= booking.ppn %>
+      <% if booking.approved %>
+        <%= "Approved" %>
+      <% else %>
+        <%= "Pending" %>
+      <% end %>
+    <% end %>
+  </div>
+</body>
+</html>

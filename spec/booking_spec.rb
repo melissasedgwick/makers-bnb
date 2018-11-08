@@ -79,4 +79,15 @@ describe Booking do
       expect(booking.approved).to eq "f"
     end
   end
+
+  describe '#find_by_property' do
+    it 'returns an array of bookings per property' do
+      booking = Booking.submit_availability(date: "2018/10/15", property_id: @property.id)
+      request = Booking.request_booking(date: "2018/10/15", property_id: @property.id, renter_id: @user.id)
+      result = Booking.list_by_property(property_id: @property.id)
+      expect(result[0].property_id).to eq @property.id
+      expect(result[0].date).to eq booking.date
+      expect(result).to be_a(Array)
+    end
+  end
 end
