@@ -102,7 +102,6 @@ class MakersBnB < Sinatra::Base
     @property = Property.find(id: params[:id])
     @availability = Booking.check_availability(property_id: params[:id])
     Booking.request_booking(date: params[:date],property_id: params[:id],renter_id: @user.id)
-    flash[:notice] = 'Your request has been submitted!'
     redirect '/request-submitted'
   end
 

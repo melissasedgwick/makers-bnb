@@ -71,7 +71,7 @@ class Booking
   end
 
   def self.list_my_bookings(id:)
-    result = DatabaseConnection.query("SELECT bookings.id, bookings.date, bookings.property_id, bookings.renter_id, bookings.letter_id, bookings.approved, properties.name, properties.price_per_night FROM bookings INNER JOIN properties ON bookings.property_id = properties.id")
+    result = DatabaseConnection.query("SELECT bookings.id, bookings.date, bookings.property_id, bookings.renter_id, bookings.letter_id, bookings.approved, properties.name, properties.price_per_night FROM bookings INNER JOIN properties ON bookings.property_id = properties.id WHERE renter_id = #{id}")
     output = []
 
     result.each do |booking|
