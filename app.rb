@@ -15,7 +15,6 @@ class MakersBnB < Sinatra::Base
     erb :index
   end
 
-  post '/property/view/:id' do
   get '/property/view/:id' do
     @user = session[:current_user]
     @property = Property.find(id: params[:id])
@@ -87,7 +86,8 @@ class MakersBnB < Sinatra::Base
   get '/my-properties' do
     @user = session[:current_user]
     @properties = Property.find_by_letter(letter_id: @user.id)
-    erb :my_properties
+    @bookings = Booking.list_my_bookings(id: @user.id)
+    erb :account
   end
 
   get '/view_bookings' do
@@ -96,8 +96,6 @@ class MakersBnB < Sinatra::Base
     @bookings = Booking.list_my_bookings(id: @user.id)
     erb :view_bookings
   end
-
-<<<<<<< HEAD
 
   post '/request/:id/:date' do
     @user = session[:current_user]
@@ -112,8 +110,6 @@ class MakersBnB < Sinatra::Base
     erb :request_submitted
   end
 
-=======
->>>>>>> 6cfa933ddb2b7f1db683e34ef964158d04302790
   get '/account' do
     @user = session[:current_user]
     @properties = Property.find_by_letter(letter_id: @user.id)

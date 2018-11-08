@@ -38,7 +38,7 @@ feature 'Account page' do
     letter = User.register(name: "Name", username: "username", email: "test@test.com", password: "password")
     user = User.register(name: 'Lucas', username: 'sacullezzar', email: 'lucas.razzell@gmail.com', password: 'pass123')
     property = Property.create(name: "House", description: "Sweet pad!", ppn: 10, letter_id: user.id)
-    Booking.submit_availability(date: "2018/06/06", property_id: property.id)
+    Booking.submit_availability(date: "2018/06/06", property_id: property.id, letter_id: letter.id)
     request = Booking.request_booking(date: "2018/06/06", property_id: property.id, renter_id: user.id)
 
     visit ('/')
@@ -55,7 +55,7 @@ feature 'Account page' do
     letter = User.register(name: "Name", username: "username", email: "test@test.com", password: "password")
     user = User.register(name: 'Lucas', username: 'sacullezzar', email: 'lucas.razzell@gmail.com', password: 'pass123')
     property = Property.create(name: "House", description: "Sweet pad!", ppn: 10, letter_id: user.id)
-    Booking.submit_availability(date: "2018/06/06", property_id: property.id)
+    Booking.submit_availability(date: "2018/06/06", property_id: property.id, letter_id: letter.id)
     request = Booking.request_booking(date: "2018/06/06", property_id: property.id, renter_id: user.id)
     Booking.confirm_booking(id: request.id)
 
@@ -75,7 +75,7 @@ feature 'Account page' do
     letter = User.register(name: 'Lucy', username: 'famalam', email: 'penis@flytrap.com', password: 'peniarecool')
     property = Property.create(name: 'Cottage 1', description: 'A lovely place', ppn: 15, letter_id: letter.id)
 
-    Booking.submit_availability(date: "2018/06/06", property_id: property.id)
+    Booking.submit_availability(date: "2018/06/06", property_id: property.id, letter_id: letter.id)
     request = Booking.request_booking(date: "2018/06/06", property_id: property.id, renter_id: user.id)
     Booking.confirm_booking(id: request.id)
 

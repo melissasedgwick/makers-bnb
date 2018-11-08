@@ -13,10 +13,6 @@ class Booking
     @ppn = ppn
   end
 
-  def self.submit_availability(date:, property_id:)
-    result = DatabaseConnection.query("INSERT INTO bookings (date, property_id)
-    VALUES('#{date}', '#{property_id}')
-    RETURNING id, date, property_id;")
   def self.submit_availability(date:, property_id:, letter_id:)
     result = DatabaseConnection.query("INSERT INTO bookings (date, property_id, letter_id)
     VALUES('#{date}', '#{property_id}', '#{letter_id}')

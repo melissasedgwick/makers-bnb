@@ -12,7 +12,6 @@ describe Booking do
 
   describe '#submit_availability' do
     it 'adds availability for property to database' do
-      booking = Booking.submit_availability(date: "2018/10/15", property_id: @property.id)
       booking = Booking.submit_availability(date: "2018/10/15", property_id: @property.id, letter_id: @letter.id)
 
       expect(booking.date).to eq("2018-10-15")
@@ -22,9 +21,6 @@ describe Booking do
 
   describe '#check_availability' do
     it 'returns dates a property is available' do
-      Booking.submit_availability(date: "2018/10/15", property_id: @property.id)
-      Booking.submit_availability(date: "2018/10/17", property_id: @property.id)
-      Booking.submit_availability(date: "2018/11/18", property_id: @property.id)
       Booking.submit_availability(date: "2018/10/15", property_id: @property.id, letter_id: @letter.id)
       Booking.submit_availability(date: "2018/10/17", property_id: @property.id, letter_id: @letter.id)
       Booking.submit_availability(date: "2018/11/18", property_id: @property.id, letter_id: @letter.id)
@@ -39,7 +35,6 @@ describe Booking do
 
   describe '#request_booking' do
     it 'raises error if requesting unavailable date for property' do
-      Booking.submit_availability(date: "2018/10/15", property_id: @property.id)
       Booking.submit_availability(date: "2018/10/15", property_id: @property.id, letter_id: @letter.id)
       expect{Booking.request_booking(date: "2018/09/01", property_id: @property.id, renter_id: @user.id)}.to raise_error("Date unavailable")
     end
@@ -49,7 +44,6 @@ describe Booking do
     end
 
     it 'adds request to bookings table if date and property is available' do
-      Booking.submit_availability(date: "2018/10/15", property_id: @property.id)
       Booking.submit_availability(date: "2018/10/15", property_id: @property.id, letter_id: @letter.id)
       booking = Booking.request_booking(date: "2018/10/15", property_id: @property.id, renter_id: @user.id)
 
@@ -62,7 +56,6 @@ describe Booking do
 
   describe '#confirm_booking' do
     it 'adds true to booking approval' do
-      Booking.submit_availability(date: "2018/10/15", property_id: @property.id)
       Booking.submit_availability(date: "2018/10/15", property_id: @property.id, letter_id: @letter.id)
       request = Booking.request_booking(date: "2018/10/15", property_id: @property.id, renter_id: @user.id)
       booking = Booking.confirm_booking(id: request.id)
@@ -76,7 +69,6 @@ describe Booking do
 
   describe '#deny_booking' do
     it 'adds false to booking approval' do
-      Booking.submit_availability(date: "2018/10/15", property_id: @property.id)
       Booking.submit_availability(date: "2018/10/15", property_id: @property.id, letter_id: @letter.id)
       request = Booking.request_booking(date: "2018/10/15", property_id: @property.id, renter_id: @user.id)
       booking = Booking.deny_booking(id: request.id)
@@ -90,7 +82,7 @@ describe Booking do
 
   describe '#find_by_property' do
     it 'returns an array of bookings per property' do
-      booking = Booking.submit_availability(date: "2018/10/15", property_id: @property.id)
+      booking = Booking.submit_availability(date: "2018/10/15", property_id: @property.id, letter_id: @letter.id)
       request = Booking.request_booking(date: "2018/10/15", property_id: @property.id, renter_id: @user.id)
       result = Booking.list_by_property(property_id: @property.id)
       expect(result[0].property_id).to eq @property.id
