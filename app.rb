@@ -121,6 +121,7 @@ class MakersBnB < Sinatra::Base
     @user = session[:current_user]
     Booking.submit_availability(date: params[:year] + params[:months] + params[:day], property_id: params[:id].to_i, letter_id: @user.id)
     redirect('/')
+  end
 
   post '/booking/approve/:id' do
     Booking.confirm_booking(id: params[:id])
