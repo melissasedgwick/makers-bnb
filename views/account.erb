@@ -1,12 +1,78 @@
 <html>
 <head>
   <title>Makers BnB by Team LAMP</title>
+  <style>
+
+  h1 {
+    text-align: center;
+  }
+
+  .bgd {
+    align-items: center;
+  }
+
+  .wrapper {
+    display: grid;
+    grid-template-columns:repeat(3, 1fr), minmax(auto, 100);
+    grid-gap:1em;
+
+  }
+
+  .wrapper > div{
+    background: orange;
+    padding: 1em;
+  }
+
+  .wrapper > div:nth-child(odd){
+
+    background: red;
+  }
+
+  .my_bookings {
+    grid-column: 1/3;
+  }
+
+  .my_properties {
+    grid-column: 3/4;
+    grid-row: 1/3;
+  }
+
+  .account_controls {
+    text-align:center;
+  }
+  div {
+    border-radius: 10px;
+  }
+
+  input[type="submit"] {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: grab;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    box-shadow: 0 9px #999;
+  }
+
+  input[type="submit"]:hover {background-color: green;}
+
+input[type="submit"]:active {
+    background-color: black;
+    box-shadow: 0 5px yellow;
+    cursor: grabbing;
+    transform: translateY(4px);
+  }
+
+  </style>
 </head>
 <body>
-  <h1>Hi <%= @user.name %>, here is your account!</h1>
-  <div class="account_controls">
+  <div class="wrapper">
+  <div><h1>Hi <%= @user.name %>, here is your account!</h1></div>
+  <div class="account_controls" style="align-content: center;" >
     <form method="get" action="/add-property">
-      <input type="submit" id="add_property" value="Add Property">
+      <input  type="submit" id="add_property" value="Add Property">
     </form>
   </div>
   <div class="my_properties">
@@ -54,5 +120,7 @@
       <% end %>
     <% end %>
   </div>
+</div>
+<img class="bgd" src="https://static.gamespot.com/uploads/screen_kubrick/1578/15789366/3431596-rick+and+morty+featured+image.jpg"
 </body>
 </html>
