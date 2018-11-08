@@ -74,6 +74,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/property/update/:id' do
+    # p params[:id]
     @property = Property.find(id: params[:id])
     erb :update
   end
@@ -116,6 +117,11 @@ class MakersBnB < Sinatra::Base
     erb :account
   end
 
+  post '/add-availability/:id' do
+    @user = session[:current_user]
+    Booking.submit_availability(date: params[:year] + params[:months] + params[:day], property_id: params[:id].to_i, letter_id: @user.id)
+    redirect('/')
+
   post '/booking/approve/:id' do
     Booking.confirm_booking(id: params[:id])
     redirect '/account'
@@ -124,6 +130,7 @@ class MakersBnB < Sinatra::Base
   post '/booking/deny/:id' do
     Booking.deny_booking(id: params[:id])
     redirect '/account'
+
   end
 
   run! if app_file == $0
