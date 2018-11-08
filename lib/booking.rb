@@ -90,6 +90,23 @@ class Booking
     )
   )
     return output
+    end
   end
+
+  def self.list_by_property(property_id:)
+    result = DatabaseConnection.query("SELECT * FROM bookings WHERE property_id = #{property_id};")
+    output = []
+    result.each do |booking|
+      output << Booking.new(id: booking['id'],
+      date: booking['date'],
+      property_id: booking['property_id'],
+      renter_id: booking['renter_id'],
+      approved: booking['approved'],
+      property_name: booking['name'],
+      ppn: booking['price_per_night'],
+      letter_id: booking['letter_id']
+    )
+    return output
+    end
   end
 end

@@ -97,6 +97,7 @@ class MakersBnB < Sinatra::Base
     erb :view_bookings
   end
 
+
   post '/request/:id/:date' do
     @user = session[:current_user]
     @property = Property.find(id: params[:id])
@@ -108,6 +109,13 @@ class MakersBnB < Sinatra::Base
 
   get '/request-submitted' do
     erb :request_submitted
+  end
+
+  get '/account' do
+    @user = session[:current_user]
+    @properties = Property.find_by_letter(letter_id: @user.id)
+    @bookings = Booking.list_my_bookings(id: @user.id)
+    erb :account
   end
 
   run! if app_file == $0

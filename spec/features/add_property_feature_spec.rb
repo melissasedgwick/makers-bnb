@@ -9,7 +9,8 @@ feature 'User can add a property' do
     fill_in :password, with: 'pass123'
 
     click_button 'submit'
-    click_button 'Add property'
+    click_button 'account_page'
+    click_button 'add_property'
 
     fill_in :name, with: 'Cottage'
     fill_in :description, with: 'Test description'
@@ -32,7 +33,8 @@ feature 'User can add a property' do
     fill_in :password, with: 'pass123'
 
     click_button 'submit'
-    click_button 'Add property'
+    click_button 'account_page'
+    click_button 'add_property'
 
     fill_in :name, with: 'Cottage'
     fill_in :description, with: 'Test description'
@@ -40,7 +42,8 @@ feature 'User can add a property' do
 
     click_button 'Submit'
 
-    click_button 'Add property'
+    click_button 'account_page'
+    click_button 'add_property'
 
     fill_in :name, with: 'House'
     fill_in :description, with: 'Test house'

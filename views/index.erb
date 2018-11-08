@@ -21,14 +21,8 @@
     <%= flash[:notice] %>
 
     <% if @user %>
-    <form method="get" action="/add-property">
-      <input type="submit" value="Add property">
-    </form>
-    <form method="get" action="/my-properties">
-      <input type="submit" value="My Properties">
-    </form>
-    <form method="get" action="/view_bookings">
-      <input type="submit" value="view_bookings">View Bookings
+    <form method="get" action="/account">
+      <input type="submit" id="account_page" value="Account">
     </form>
     <% end %>
   </div>
