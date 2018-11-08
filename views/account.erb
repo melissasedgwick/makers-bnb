@@ -22,9 +22,17 @@
         <% Booking.list_by_property(property_id: property.id).each do |booking| %>
           <%= booking.date %>
           <% if booking.approved == "t" %>
-            <%= "Approved" %>
+            Approved
+          <% elsif booking.approved == "f" %>
+            Denied
           <% else %>
-            <%= "Pending" %>
+            Pending
+            <form method="post" action="booking/approve/<%= booking.id %>">
+              <input type="submit" id="approve" value="Approve">
+            </form>
+            <form method="post" action="booking/deny/<%= booking.id %>">
+              <input type="submit" id="deny" value="Deny">
+            </form>
           <% end %>
         <% end %>
       </li>
@@ -38,9 +46,11 @@
       <%= booking.property_name %>
       <%= booking.ppn %>
       <% if booking.approved == "t" %>
-        <%= "Approved" %>
+        Approved
+      <% elsif booking.approved == "f" %>
+        Denied
       <% else %>
-        <%= "Pending" %>
+        Pending
       <% end %>
     <% end %>
   </div>
